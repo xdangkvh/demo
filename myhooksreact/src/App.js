@@ -1,7 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
 
+<<<<<<< HEAD
 const App =() => {
+=======
+const App =() =>  {
+>>>>>>> develop
   return (
     <div className="App">
       <header className="App-header">
