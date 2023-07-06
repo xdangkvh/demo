@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
 import {useState} from 'react';
+import Todo from './views/Todo';
 const App = () => {
   // let name = "Truong";
   const [name, setName] = useState("Dang");
@@ -9,7 +10,7 @@ const App = () => {
   const [todos, setTodos] = useState([
     {id: "to do1", title:"Watching movie"},
     {id: "to do2", title: "Hello World"},
-    {id: "tod do3", title:"playing game"}
+    {id: "to do3", title:"playing game"}
   ]);
 
   const handleEventClick = (event) => {
@@ -28,25 +29,16 @@ const App = () => {
     setAddress(event.target.value)
     // console.log(event.target.value)
   }
+  // re-render
   return (
     <div className="App">
       <Nav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1> Hello ReactJS {name} </h1>
-        <div className='todos-container' >
-            {
-              todos.map(todo => {
-                return(
-                  <li className='todo-child' key={todo.id}>
-                    {todo.title}
-                  </li>
-                )
-              })
-            }
+        <Todo  todos= {todos}>
          
-
-        </div>
+        </Todo>
         <input type="text" value={address} onChange={(event) => handleOnChange(event)} />
         <button type="button" onClick={(event) => handleEventClick(event)}> Click me</button>
       </header>
