@@ -21,13 +21,19 @@ const App = () => {
       alert("Empty input")
       return
     }
-    let newTodo = {id: "4", title:address, type: "Eric"}
+    let newTodo = {id: Math.floor(Math.random() * 100), title:address, type: "Eric"}
     setTodos([...todos, newTodo])
     setAddress("")
   }
   const handleOnChange = (event) =>{
     setAddress(event.target.value)
     // console.log(event.target.value)
+  }
+
+  const deleteDataTodo =(id)=>{
+    let currentTodo= todos;
+    currentTodo = currentTodo.filter(item => item.id !== id)
+    setTodos(currentTodo)
   }
   // re-render
   return (
@@ -36,12 +42,12 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1> Hello ReactJS {name} </h1>
-        <Todo  todos= {todos}>
-         
-        </Todo>
-        <hr></hr>
-        <Todo todos = {todos.filter(item => item.type === "Eric")}>
 
+        {/* tai su dung component */}
+        <Todo  todos= {todos} deleteDataTodo = {deleteDataTodo}>
+        </Todo>
+        
+        <Todo todos = {todos.filter(item => item.type === "Eric")} deleteDataTodo = {deleteDataTodo}>
         </Todo>
         <input type="text" value={address} onChange={(event) => handleOnChange(event)} />
         <button type="button" onClick={(event) => handleEventClick(event)}> Click me</button>
