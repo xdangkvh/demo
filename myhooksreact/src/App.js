@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
-
+import {useState} from 'react';
 const App = () => {
   let name = "Truong";
 
