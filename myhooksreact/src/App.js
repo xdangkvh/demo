@@ -3,6 +3,7 @@ import './App.css';
 import Nav from './views/Nav';
 import {useState, useEffect} from 'react';
 import Todo from './views/Todo';
+import Covid from './views/Covid';
 const App = () => {
   // let name = "Truong";
   const [name, setName] = useState("Dang");
@@ -15,7 +16,13 @@ const App = () => {
 
   useEffect(() => {
     console.log("run use effect");
-  });
+  }, [address]);
+
+  useEffect(() => {
+    console.log("run use effect");
+  }, [todos]);
+
+
   const handleEventClick = (event) => {
     // setName(address);
     // console.log(address)
@@ -45,15 +52,15 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1> Hello ReactJS {name} </h1>
-
-        {/* tai su dung component */}
+        <Covid></Covid>
+        {/* tai su dung component
         <Todo  todos= {todos} deleteDataTodo = {deleteDataTodo}>
         </Todo>
         
         <Todo todos = {todos.filter(item => item.type === "Eric")} deleteDataTodo = {deleteDataTodo}>
         </Todo>
         <input type="text" value={address} onChange={(event) => handleOnChange(event)} />
-        <button type="button" onClick={(event) => handleEventClick(event)}> Click me</button>
+        <button type="button" onClick={(event) => handleEventClick(event)}> Click me</button> */}
       </header>
     </div>
   );
