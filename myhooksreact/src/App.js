@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Todo from './views/Todo';
 const App = () => {
   // let name = "Truong";
@@ -13,6 +13,9 @@ const App = () => {
     {id: "to do3", title:"playing game", type: "hoidanit"}
   ]);
 
+  useEffect(() => {
+    console.log("run use effect");
+  });
   const handleEventClick = (event) => {
     // setName(address);
     // console.log(address)
