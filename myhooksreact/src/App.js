@@ -8,9 +8,9 @@ const App = () => {
   const [name, setName] = useState("Dang");
   const [address, setAddress] = useState();
   const [todos, setTodos] = useState([
-    {id: "to do1", title:"Watching movie"},
-    {id: "to do2", title: "Hello World"},
-    {id: "to do3", title:"playing game"}
+    {id: "to do1", title:"Watching movie", type: "Eric"},
+    {id: "to do2", title: "Hello World", type: "Eric"},
+    {id: "to do3", title:"playing game", type: "hoidanit"}
   ]);
 
   const handleEventClick = (event) => {
@@ -21,7 +21,7 @@ const App = () => {
       alert("Empty input")
       return
     }
-    let newTodo = {id: "4", title:address}
+    let newTodo = {id: "4", title:address, type: "Eric"}
     setTodos([...todos, newTodo])
     setAddress("")
   }
@@ -38,6 +38,10 @@ const App = () => {
         <h1> Hello ReactJS {name} </h1>
         <Todo  todos= {todos}>
          
+        </Todo>
+        <hr></hr>
+        <Todo todos = {todos.filter(item => item.type === "Eric")}>
+
         </Todo>
         <input type="text" value={address} onChange={(event) => handleOnChange(event)} />
         <button type="button" onClick={(event) => handleEventClick(event)}> Click me</button>

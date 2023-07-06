@@ -11,6 +11,8 @@ const Todo = (props) => {
                 )
               })
             }
+            <hr>
+            </hr>
         </div>
     )
 }
