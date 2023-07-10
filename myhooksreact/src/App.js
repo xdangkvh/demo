@@ -1,9 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import Nav from './views/Nav';
-import {useState, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Todo from './views/Todo';
 import Covid from './views/Covid';
+import{
+  BrowserRouter as Router,
+  Switch, 
+  Route, 
+  Link
+} from "react-router-dom"
+
 const App = () => {
   // let name = "Truong";
   const [name, setName] = useState("Dang");
@@ -47,7 +54,8 @@ const App = () => {
   }
   // re-render
   return (
-    <div className="App">
+    <Router>
+      <div className="App">
       <Nav />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -62,7 +70,9 @@ const App = () => {
         <input type="text" value={address} onChange={(event) => handleOnChange(event)} />
         <button type="button" onClick={(event) => handleEventClick(event)}> Click me</button> */}
       </header>
-    </div>
+      </div>
+    </Router>
+   
   );
 }
 

@@ -1,27 +1,36 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import useFetch from "../customize/fetch";
 const Covid = () =>{
-
-    useEffect (() => {
-        axios.get("https://api.covid19api.com/country/vietnam")
-    }, [])
+    // const [dataCovid, setDataCovid] = useState([]);
+    // useEffect (async() => {
+    //     let res = await axios.get("https://api.publicapis.org/entries")
+    //     let data = res && res.data ? res.data : [];
+    //     setDataCovid(data)
+    // }, [])
+    const {data, isLoading, isError} = useFetch("https://randomuser.me/api/");
+    // // console.log("check data", data)
+    
     return(
         <table>
-        <tr>
-          <th>Company</th>
-          <th>Contact</th>
-          <th>Country</th>
-        </tr>
-        <tr>
-          <td>Alfreds Futterkiste</td>
-          <td>Maria Anders</td>
-          <td>Germany</td>
-        </tr>
-        <tr>
-          <td>Centro comercial Moctezuma</td>
-          <td>Francisco Chang</td>
-          <td>Mexico</td>
-        </tr>
+         
+          {/* {console.log("check data covid:", data)} */}
+          <thead>
+            <tr>
+              <td>Cell</td>
+              <td>Email</td>
+              <td>Gender</td>
+              <td>Phone</td>
+            </tr>
+          </thead>
+         
+          <tbody>
+            <tr>
+              
+            </tr>
+          </tbody>
+         
+         
       </table>
     )
 }
